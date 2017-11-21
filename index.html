@@ -1,0 +1,32 @@
+<html ng-app="CalMakerApp" ng-controller="RootCtrl">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Calendar maker</title>
+        <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two" rel="stylesheet">        
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body >
+        <div class="month" ng-repeat="month in months" ng-controller="MonthCtrl" drag-area="handleDragEvent" ng-class="{todrop:todrop}" drop-area="handleDroppedFile">
+            <img ng-class="{active:show_img}"/>
+            <h1>{{month.label}} - {{month.year}}</h1>
+            
+            <div class="days">
+                    <div class="header" ng-repeat="header in headers">
+                        {{header.label}}
+                    </div>
+                    <div class="day" ng-class="{active:isCurrentMonth(day,month)}" ng-repeat="day in month.days">
+                        {{day.label}}
+                    </div>    
+            </div>
+            
+        </div>
+        <div class="tools no-print" ng-class="{active:activated}" ng-controller="ToolsCtrl" ng-mouseenter="activated=true" ng-mouseleave="activated=false">
+            Desde: <input type="date" ng-model="from"/> Meses:<input type="number" step="1" value="12" ng-model="qty" min="1" max="100"/> <button ng-click="makeCal()">Generar</button>
+        </div>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="angular-drag-drop/src/dragArea.js"></script>
+        <script type="text/javascript" src="angular-drag-drop/src/dropArea.js"></script>
+        
+    </body>
+</html>
