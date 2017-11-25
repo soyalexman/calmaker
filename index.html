@@ -5,7 +5,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two" rel="stylesheet">        
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
-    <body >
+    <body class="{{style.cl}}">
         <div class="month" ng-repeat="month in months" ng-controller="MonthCtrl" drag-area="handleDragEvent" ng-class="{todrop:todrop}" drop-area="handleDroppedFile">
             <img ng-class="{active:show_img}"/>
             <h1>{{month.label}} - {{month.year}}</h1>
@@ -21,7 +21,13 @@
             
         </div>
         <div class="tools no-print" ng-class="{active:activated}" ng-controller="ToolsCtrl" ng-mouseenter="activated=true" ng-mouseleave="activated=false">
-            Desde: <input type="date" ng-model="from"/> Meses:<input type="number" step="1" value="12" ng-model="qty" min="1" max="100"/> <button ng-click="makeCal()">Generar</button>
+            Desde: <input type="date" ng-model="from"/> 
+            Meses:<input type="number" step="1" value="12" ng-model="qty" min="1" max="100"/> 
+            <button ng-click="makeCal()">Generar</button>
+            Estilo: <select ng-model="style.cl">
+                <option value="default">Default</option>
+                <option value="v-halfs">Imagen Arriba, Calendario abajo</option>
+            </select>
         </div>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
         <script type="text/javascript" src="app.js"></script>

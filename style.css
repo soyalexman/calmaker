@@ -92,3 +92,17 @@ html,body{
 .month>img.active{
     display:block;
 }
+
+
+body.v-halfs .month>img{
+    height: 50%;
+}
+body.v-halfs .days{
+    height: 50%;
+    position: relative;
+    top: calc( 50% + 16px);
+} 
+body.v-halfs .month>h1{
+    position: relative;
+    top: calc(50% + 16px);
+}

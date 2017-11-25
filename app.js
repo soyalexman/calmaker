@@ -3,6 +3,9 @@
 
     module.controller('RootCtrl',function($scope){
         $scope.months = [];
+        $scope.style = {
+            cl:'default'
+        };
     });
 
     module.controller('MonthCtrl',function($scope,$element){
